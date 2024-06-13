@@ -67,9 +67,12 @@ function attackBoss() {
     if (bossObject.health < 0) {
         bossObject.health = 0
     }
+    heroesLevelUp()
     bossLevelUp()
     bossHealthElem.innerText = `${bossObject.health}`
     bossKillCountelem.innerText = `${bossObject.level - 1}`
+    drawKnight()
+    drawWizard()
     console.log(bossObject)
 }
 
@@ -81,14 +84,13 @@ function attackPlayers() {
     let wizardHealth = heroes.find((Wizard) => Wizard.name == 'Wizard')
     wizardHealth.health = wizardHealth.health -= bossDamage.damage
     knightHealth.health = knightHealth.health -= bossDamage.damage
-    if (wizardHealth?.health && knightHealth.health < 0) {
+    if (wizardHealth.health && knightHealth.health < 0) {
         wizardHealth.health = 0
         knightHealth.health = 0
     }
     console.log('This is the wizards Health', wizardHealth.health)
     drawKnight()
     drawWizard()
-    checkIfBothHeroesAreDead()
 }
 
 function checkIfBothHeroesAreDead() {
@@ -125,9 +127,20 @@ function heroesLevelUp() {
         knightObject.damage += 1
         wizardObject.health += 15
         knightObject.health += 15
-
+        console.log("These are the wizard and the knight after they level up", wizardObject, knightObject)
     }
+}
 
+function buyPotion() {
+    const wizardObject = heroes.find((Hero) => Hero.name == "Wizard")
+    const knightObject = heroes.find((Hero) => Hero.name == 'Knight')
+    console.log("This is the potion buying button")
+    wizardObject.health += 50
+    knightObject.health += 50
+    wizardObject.gold -= 50
+    knightObject.gold -= 50
+    drawKnight()
+    drawWizard()
 }
 // ANCHOR Auto Run Function
 
@@ -135,4 +148,4 @@ function heroesLevelUp() {
 drawKnight()
 drawWizard()
 checkIfBothHeroesAreDead()
-// setInterval(attackPlayers, 500)
+setInterval(attackPlayers, 500)

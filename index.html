@@ -98,7 +98,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <h5 class="card-title p-2 fw-bold">BUY POTION
-                                    <h5 id="buyPotion"
+                                    <h5 onclick="buyPotion()" id="buyPotion"
                                         class="fw-bold card-text d-flex align-items-start text-light bg-dark p-2 potion-img">
                                         100
                                     </h5>
@@ -123,7 +123,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-end">
-                    <div class="btn btn-danger text-danger-emphasis p-3 mb-4 fs-3">RESET</div>
+                    <div class="btn btn-danger text-danger-emphasis p-3 mb-4 fs-3" onclick="checkIfBothHeroesAreDead()">
+                        RESET</div>
                 </div>
             </div>
         </div>
