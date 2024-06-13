@@ -129,7 +129,12 @@ function bossLevelUp() {
     }
     // let totalBossHealth = bossObject?.maxHealth + (bossObject.level * 25)
     // console.log(totalBossHealth)
-
+}
+function bossPercentage() {
+    let bossHealth = (boss.health / boss.maxHealth) * 100
+    console.log(bossHealth)
+    document.getElementById('boss-health-bar').innerHTML = `<div class="progress-bar" id="boss-health-bar" style="width: ${bossHealth}%></div>`
+    return (bossHealth)
 }
 
 function heroesLevelUp() {
