@@ -154,10 +154,12 @@ function buyPotion() {
     const wizardObject = heroes.find((Hero) => Hero.name == "Wizard")
     const knightObject = heroes.find((Hero) => Hero.name == 'Knight')
     console.log("This is the potion buying button")
-    wizardObject.health += 50
-    knightObject.health += 50
-    wizardObject.gold -= 50
-    knightObject.gold -= 50
+    if (wizardObject.gold >= 50 && knightObject.gold >= 50) {
+        wizardObject.health += 50
+        knightObject.health += 50
+        wizardObject.gold -= 50
+        knightObject.gold -= 50
+    }
     drawKnight()
     drawWizard()
 }
