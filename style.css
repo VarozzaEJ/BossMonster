@@ -26,3 +26,11 @@
 .border-black {
     border: 2px 1px solid yellow;
 }
+
+.hidden {
+    display: none !important;
+}
+
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}

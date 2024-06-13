@@ -27,11 +27,32 @@ const boss = [
     },
 ]
 
+function startGame() {
+    setInterval(attackPlayers, 500)
+    let startGameElem = document.getElementById('startGame')
+    startGameElem.style.display = "none"
+    document.getElementById('boss-card')?.classList.remove("hidden")
+}
+
+function checkIfBothHeroesAreDead() {
+    let wizardDamage = heroes.find((Wizard) => Wizard.name == 'Wizard')
+    let knightDamage = heroes.find((Knight) => Knight.name == 'Knight')
+
+    if (wizardDamage.health == 0 && knightDamage.health == 0) {
+        console.log("Have both heroes died???")
+        // window.alert('Both heroes have died')
+        setTimeout(resetButton, 3000)
+    }
+    // heroes.forEach((hero) => hero.health == 0){
+
+    // }
+}
+
 function drawKnight() {
     const knightHealthElem = document.getElementById("healthForKnight")
     const knightGoldElem = document.getElementById("goldForKnight")
     const knightLevelElem = document.getElementById("XPForKnight")
-    console.log(knightGoldElem, knightHealthElem, knightLevelElem)
+    // console.log(knightGoldElem, knightHealthElem, knightLevelElem)
     const knightObject = heroes.find((Hero) => Hero.name == 'Knight')
     // @ts-ignore
     knightHealthElem.innerText = `${knightObject?.health}`
@@ -39,7 +60,8 @@ function drawKnight() {
     knightGoldElem.innerText = `${knightObject?.gold}`
     // @ts-ignore
     knightLevelElem.innerText = `${knightObject?.level}`
-    console.log(knightObject)
+    // console.log(knightObject)
+
 }
 
 function drawWizard() {
@@ -53,7 +75,7 @@ function drawWizard() {
     wizardGoldElem.innerText = `${wizardObject.gold}`
     // @ts-ignore
     wizardLevelElem.innerText = `${wizardObject.level}`
-    console.log(wizardObject)
+    // console.log(wizardObject)
 }
 
 function attackBoss() {
@@ -73,7 +95,7 @@ function attackBoss() {
     bossKillCountelem.innerText = `${bossObject.level - 1}`
     drawKnight()
     drawWizard()
-    console.log(bossObject)
+    // console.log(bossObject)
 }
 
 function attackPlayers() {
@@ -84,23 +106,20 @@ function attackPlayers() {
     let wizardHealth = heroes.find((Wizard) => Wizard.name == 'Wizard')
     wizardHealth.health = wizardHealth.health -= bossDamage.damage
     knightHealth.health = knightHealth.health -= bossDamage.damage
-    if (wizardHealth.health && knightHealth.health < 0) {
+    if (wizardHealth.health <= 0 && knightHealth.health <= 0) {
         wizardHealth.health = 0
         knightHealth.health = 0
+        checkIfBothHeroesAreDead()
     }
-    console.log('This is the wizards Health', wizardHealth.health)
+    // console.log('This is the wizards Health', wizardHealth.health)
     drawKnight()
     drawWizard()
 }
 
-function checkIfBothHeroesAreDead() {
-    let wizardDamage = heroes.find((Wizard) => Wizard.name == 'Wizard')
-    let knightDamage = heroes.find((Knight) => Knight.name == 'Knight')
-
-    if (wizardDamage.health == 0 && knightDamage.health == 0) {
-        location.reload()
-    }
+function resetButton() {
+    location.reload()
 }
+
 function bossLevelUp() {
     const bossObject = boss.find((Boss) => Boss.name == `Satan's Right Hand`)
     if (bossObject.health <= 0) {
@@ -127,7 +146,7 @@ function heroesLevelUp() {
         knightObject.damage += 1
         wizardObject.health += 15
         knightObject.health += 15
-        console.log("These are the wizard and the knight after they level up", wizardObject, knightObject)
+        // console.log("These are the wizard and the knight after they level up", wizardObject, knightObject)
     }
 }
 
@@ -148,4 +167,3 @@ function buyPotion() {
 drawKnight()
 drawWizard()
 checkIfBothHeroesAreDead()
-setInterval(attackPlayers, 500)

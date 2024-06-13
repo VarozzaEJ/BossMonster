@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-12 d-flex justify-content-end">
 
-                    <div class="card m-3" style="width: 20rem;">
+                    <div id="boss-card" class="card disable-dbl-tap-zoom m-3 hidden" style="width: 20rem;">
                         <div class="d-flex justify-content-center pb-4 pe-4">
                             <h2>
                                 Boss Defeated: <span class="fs-2" id="bossKillCount"></span>
@@ -123,7 +123,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-end">
-                    <div class="btn btn-danger text-danger-emphasis p-3 mb-4 fs-3" onclick="checkIfBothHeroesAreDead()">
+                    <div class="btn btn-success text-success-emphasis p-3 mb-4 fs-3" onclick="startGame()"
+                        id="startGame">
+                        START GAME</div>
+                    <div class="btn btn-danger text-danger-emphasis p-3 mb-4 fs-3" onclick="resetButton()">
                         RESET</div>
                 </div>
             </div>
