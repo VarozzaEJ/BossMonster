@@ -15,15 +15,15 @@
 </head>
 
 <body class="game-font">
-    <!-- ANCHOR Heroes -->
     <div class="container-fluid background-img img-fluid">
+        <!-- ANCHOR Heroes -->
         <div class="row">
             <div class="col-12 d-flex justify-content-start">
-                <div class="card bg-dark text-warning-emphasis m-3" style="width: 14rem;">
+                <div class="card bg-dark border-white text-warning-emphasis m-3" style="width: 14rem;">
                     <img src="https://realmstock.com/cdn/shop/files/Witch_Doctor_Skin_7ce9ae12-c605-4646-92e0-41a4f256e171.png?v=1718092544&width=1206"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title p-2 fw-bold">Wizard</h5>
+                    <div class="card-body fs-4">
+                        <h2 class="card-title p-2 fw-bold">Wizard</h2>
                         <div class="d-flex">
                             <p class="card-text p-2">HP:
                             <p id="healthForWizard" class="fw-bold card-text p-2">100</p>
@@ -44,8 +44,8 @@
                 <div class="card m-3" style="width: 14rem;">
                     <img src="https://realmstock.com/cdn/shop/files/Oryxmas_Knight_Skin_7547d5c1-3e4e-474f-ba99-bae99ce1cc29.png?v=1718092569"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title p-2 fw-bold">Knight</h5>
+                    <div class="card-body fs-4 border-black">
+                        <h2 class="card-title p-2 fw-bold">Knight</h2>
                         <div class="d-flex">
                             <p class="card-text p-2">HP:
                             <p id="healthForKnight" class="fw-bold card-text p-2">100</p>
@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-end">
-                    <div class="card m-3 " style="width: 20rem;">
+                    <div class="card m-3" style="width: 20rem;">
                         <img src="https://i.imgur.com/wJYdIYE.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h4 class="card-title p-2 fw-bold text-danger d-flex justify-content-center">Satan's Right
@@ -91,7 +91,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <h5 class="card-title p-2 fw-bold">BUY POTION
-                                    <h5 id="healthForKnight"
+                                    <h5 id="buyPotion"
                                         class="fw-bold card-text d-flex align-items-start text-light bg-dark p-2 potion-img">
                                         100
                                     </h5>
@@ -99,16 +99,24 @@
                             </div>
                             <div class="d-flex">
                                 <h5 class="card-text p-2">BUY ROGUE
-                                    <h5 id="healthForKnight" class="fw-bold card-text p-2">100</h5>
+                                    <h5 id="buyRogue" class="fw-bold card-text p-2">100</h5>
                                 </h5>
                             </div>
                             <div class="d-flex">
                                 <h5 class="card-text ps-2 pt-2">BUY BARD
-                                    <h5 id="goldForKnight" class="fw-bold card-text p-2">50</h5>
+                                    <h5 id="buyBard" class="fw-bold card-text p-2">50</h5>
                                 </h5>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- ANCHOR Reset -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end">
+                    <div class="btn btn-danger text-danger-emphasis p-3 mb-4 fs-3">RESET</div>
                 </div>
             </div>
         </div>
